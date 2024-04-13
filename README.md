@@ -11,3 +11,20 @@ MNIST에 대해서는 뭐 98% 나오지만 CIFAR10에 대해서는 58~60% 정확
 더 좋은 방법을 찾아야 한다. 
 
 [paperwithcode: DeepSVDD-CIFAR10](https://paperswithcode.com/sota/anomaly-detection-on-one-class-cifar-10)
+
+
+```python
+
+AUC
+airplane : 67.72%
+automobile : 51.84%
+bird : 63.19% 
+cat : 52.94%
+deer : 73.46%
+dog : 46.85%
+frog : 76.55%
+horse : 54.11%
+ship : 46.80%
+truck : 49.64%
+
+```

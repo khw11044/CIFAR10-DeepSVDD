@@ -47,7 +47,7 @@ dog : 46.85%
 frog : 76.55%
 horse : 54.11%
 ship : 46.80%
-truck : 
+truck : 49.64%
 '''
 
 if __name__=="__main__":
