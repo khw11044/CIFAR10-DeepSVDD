@@ -23,18 +23,37 @@ args = easydict.EasyDict({
        'lr_ae':1e-3,
        'weight_decay':5e-7,
        'weight_decay_ae':5e-3,
-       'lr_milestones':[25, 50, 75],
+       'ae_lr_milestones': [100],
+       'lr_milestones':[100],
        'BATCH_SIZE':1024,
        'TEST_BATCH_SIZE':4,
        'pretrain':True,         # 항상 True
        'load_AE':False,     # False
        'latent_dim':128,
-       'normal_class':'airplane',        # ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
-       'AutoEncoder_path':'./weights/pretrained_AE.pth',
-       'save_path':'./weights/best_model.pth'
+       'normal_class':'truck',        
+       'AutoEncoder_path':'./weights/',
+       'save_path':'./weights/'
                 })
 
+'''
+['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+AUC
+airplane : 67.72%
+automobile : 51.84%
+bird : 63.19% 
+cat : 52.94%
+deer : 73.46%
+dog : 46.85%
+frog : 76.55%
+horse : 54.11%
+ship : 46.80%
+truck : 
+'''
+
 if __name__=="__main__":
+    args.AutoEncoder_path = args.AutoEncoder_path + '{}_pretrained_AE.pth'.format(args.normal_class)
+    args.save_path = args.save_path + '{}_best_model.pth'.format(args.normal_class)
+    
     weight_root = './weights'
     os.makedirs(weight_root, exist_ok=True)
     dataloader_train, dataloader_vaild, dataloader_test, classes = get_cifa10(args)

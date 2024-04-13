@@ -19,7 +19,7 @@ class TrainerDeepSVDD:
         optimizer = torch.optim.Adam(ae.parameters(), lr=self.args.lr_ae,
                                weight_decay=self.args.weight_decay_ae)
         scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, 
-                    milestones=self.args.lr_milestones, gamma=0.1)
+                    milestones=self.args.ae_lr_milestones, gamma=0.1)
         
         ae.train()
         for epoch in range(self.args.num_epochs_ae):
